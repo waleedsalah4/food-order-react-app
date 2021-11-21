@@ -10,6 +10,8 @@ import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../store/actions';
 
 const StyledMenu = withStyles({
   paper: {
@@ -55,6 +57,7 @@ const useStyles = makeStyles(() => ({
 
 export default function ToggleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
 
@@ -67,6 +70,7 @@ export default function ToggleMenu() {
   };
 
   const logout = () => {
+    dispatch(signOut())
     localStorage.setItem('user-data', '');
     localStorage.setItem('user-token', '');
     localStorage.setItem('isLoggedIn', '');

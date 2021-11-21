@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { forgotPasswordReducer, loginReducer, signUpReducer, UpdateMeReducer, updatePasswordReducer, resetPasswordReducer} from './Reducers/authReducer';
-import {recipeReducer, getRecipeByIdReducer, getCategoryReducer, searchReducer} from "./Reducers/recipeReducer";
+import {recipeReducer, getItemByIdReducer, getCategoryReducer, searchReducer} from "./Reducers/recipeReducer";
 import cartReducer from './Reducers/cartReducer';
 import favaouriteRuducer from './Reducers/favaouriteRuducer';
 import { postOrderReducer, getMyOrdersReducer, cancelOrderReducer} from './Reducers/orderReducer'
+import { getAllUsersReducer, getAllOrdersReducer, handlePostItemsReducer, handelDeleteReducer, handelEditReducer } from './Reducers/adminReducer';
 
 
 const reducers = combineReducers({
@@ -17,7 +18,7 @@ const reducers = combineReducers({
 
     recipe: recipeReducer,
     category: getCategoryReducer,
-    recipeById: getRecipeByIdReducer,
+    itemById: getItemByIdReducer,
     search: searchReducer,
 
     cart: cartReducer,
@@ -26,7 +27,13 @@ const reducers = combineReducers({
     
     postOrder: postOrderReducer,
     getMyOrders: getMyOrdersReducer,
-    cancelOrder: cancelOrderReducer
+    cancelOrder: cancelOrderReducer,
+
+    getAllUsers: getAllUsersReducer,
+    getAlOrders: getAllOrdersReducer,
+    createItems: handlePostItemsReducer,
+    deletedItem: handelDeleteReducer,
+    editItem: handelEditReducer
 })
 
 

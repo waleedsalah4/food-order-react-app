@@ -27,18 +27,25 @@ export const RESET_PASSWORD_REQ =  'RESET_PASSWORD_REQ';
 export const RESET_PASSWORD_SUCC =  'RESET_PASSWORD_SUCC';
 export const RESET_PASSWORD_FAIL =  'RESET_PASSWORD_FAIL';
 
-
+// admin and user
 export const GET_RECIPE_REQ = 'GET_RECIPE_REQ';
 export const GET_RECIPE_SUCC = 'GET_RECIPE_SUCC';
 export const GET_RECIPE_FAIL = 'GET_RECIPE_FAIL';
 
-export const GET_RECIPE_BY_ID_REQ = 'GET_RECIPE_BY_ID_REQ';
-export const GET_RECIPE_BY_ID_SUCC = 'GET_RECIPE_BY_ID_SUCC';
-export const GET_RECIPE_BY_ID_FAIL = 'GET_RECIPE_BY_ID_FAIL';
+export const POST_RECIPE = 'POST_RECIPE';
+export const DELETE_RECIPE = 'DELETE_RECIPE';
 
+export const GET_ITEM_BY_ID_REQ = 'GET_ITEM_BY_ID_REQ';
+export const GET_ITEM_BY_ID_SUCC = 'GET_ITEM_BY_ID_SUCC';
+export const GET_ITEM_BY_ID_FAIL = 'GET_ITEM_BY_ID_FAIL';
+
+// admin and user
 export const GET_GATEGORY_REQ = 'GET_GATEGORY_REQ';
 export const GET_GATEGORY_SUCC = 'GET_GATEGORY_SUCC';
 export const GET_GATEGORY_FAIL = 'GET_GATEGORY_FAIL';
+
+export const POST_GATEGORY = 'POST_GATEGORY';
+export const DELETE_GATEGORY = 'DELETE_GATEGORY';
 
 export const SEARCH_REQ = 'SEARCH_REQ';
 export const SEARCH_SUCC = 'SEARCH_SUCC';
@@ -66,3 +73,34 @@ export const GET_MY_ORDERS_FAIL = 'GET_MY_ORDERS_FAIL';
 export const CANCEL_ORDER_REQ = 'CANCEL_ORDER_REQ';
 export const CANCEL_ORDER_SUCC = 'CANCEL_ORDER_SUCC';
 export const CANCEL_ORDER_FAIL = 'CANCEL_ORDER_FAIL';
+export const HANDEL_DELETE_ORDER = 'HANDEL_DELETE_ORDER';
+
+
+// Admin
+
+export const GET_ALL_USERS_REQ = 'GET_ALL_USERS_REQ';
+export const GET_ALL_USERS_SUCC = 'GET_ALL_USERS_SUCC';
+export const GET_ALL_USERS_FAIL = 'GET_ALL_USERS_FAIL';
+export const DELETE_USER = 'DELETE_USER'
+
+
+export const GET_ALL_ORDERS_REQ = 'GET_ALL_ORDERS_REQ';
+export const GET_ALL_ORDERS_SUCC = 'GET_ALL_ORDERS_SUCC';
+export const GET_ALL_ORDERS_FAIL = 'GET_ALL_ORDERS_FAIL';
+
+// handle Post
+export const POST_ITEM_REQ = 'POST_ITEM_REQ';
+export const POST_ITEM_SUCC = 'POST_ITEM_SUCC';
+export const POST_ITEM_FAIL = 'POST_ITEM_FAIL';
+
+
+//handle delete
+export const REMOVED_REQ = 'REMOVED_REQ';
+export const REMOVED_SUCC = 'REMOVED_SUCC';
+export const REMOVED_FAIL = 'REMOVED_FAIL';
+
+
+//handle Edit
+export const EDIT_REQ = 'EDIT_REQ';
+export const EDIT_SUCC = 'EDIT_SUCC';
+export const EDIT_FAIL = 'EDIT_FAIL';

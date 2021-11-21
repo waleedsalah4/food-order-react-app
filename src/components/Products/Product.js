@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipeById, addToCart, addToFav } from '../../store/actions';
+import { getItemById, addToCart, addToFav } from '../../store/actions';
 
 import { makeStyles, Card, CardHeader, CardMedia, CardContent,CardActions, IconButton, Typography, CircularProgress, } from '@material-ui/core';
 import { FavoriteOutlined, AddOutlined } from '@material-ui/icons';
@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     root: {
-      maxWidth: 445,
+    //   maxWidth: 445,
+        minWidth: '30rem'
     },
     media: {
       height: 0,
@@ -39,7 +40,7 @@ const Product = (props) => {
     const isLogged = localStorage.getItem('isLoggedIn')
 
     useEffect(()=> {
-        dispatch(getRecipeById(id))
+        dispatch(getItemById(id))
     }, [dispatch, id])
    
     
@@ -55,8 +56,8 @@ const Product = (props) => {
         }
     }
 
-    const recipe = useSelector(state => state.recipeById);
-    const {recipes, loading} = recipe;
+    const recipe = useSelector(state => state.itemById);
+    const {item, loading} = recipe;
 
     return (
         <div className={classes.wrapper}>
@@ -78,7 +79,7 @@ const Product = (props) => {
             </div> */}
             {loading && <CircularProgress color="secondary" />}
             {!loading && <div>
-                { recipes.map(item => (
+                { item.map(item => (
                 <Card className={classes.root} key={item._id}>
                     <CardHeader
                         title={item.name}

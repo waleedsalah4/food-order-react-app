@@ -1,24 +1,18 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import {
-    List, ListItem, ListItemIcon, ListItemText, makeStyles, Avatar, Grid, Typography, Button
+    List, ListItem, ListItemIcon, ListItemText,
+    makeStyles
+    , Avatar, Grid, Typography, Button
 } from "@material-ui/core";
 
 import { ArrowForwardIosOutlined, HomeOutlined, MenuBookOutlined, PersonOutlineOutlined, Dashboard } from '@material-ui/icons';
+// import classes from './LeftBar.module.css'
 // import CardImg from "./CardImg"
 // const drawerWidth = 200;
 const useStyles = makeStyles({
   root: {
     flexGrow: 1
-  },
-  maincontainer: {
-    backgroundColor: 'rgba(237,245,253,255)',
-    borderRadius: '1.5rem',
-    width: '95vw',
-    height: '90vh',
-    position: 'absolute',
-    top: '2rem',
-    left: '2rem'
   },
   drawer: {
     // width: '10rem',
@@ -89,11 +83,12 @@ const useStyles = makeStyles({
     textAlign: 'center'
   },
   cardImg: {
-    width: '8rem',
+    minWidth: '8rem',
     height: '8rem',
-    position: 'absolute',
-    top: '-5rem',
-    left: '1rem',
+    borderRadius: '1.5rem',
+    // position: 'absolute',
+    // top: '-5rem',
+    // left: '1rem',
 
   }
 })
@@ -105,6 +100,13 @@ const RightBar = () => {
     const classes = useStyles();
     const logged = localStorage.getItem('isLoggedIn');
     const userRole = JSON.parse(localStorage.getItem('user-data') || '{}')
+
+  const getMobApp = () =>{
+    window.open(
+      'https://github.com/AhmedHamed-20/resturant_project/releases/download/v4.0/panda_restaurant.apk',
+      '_blank'
+    );
+  }
 
     const menuItem = [
         {
@@ -179,14 +181,11 @@ const RightBar = () => {
                 >
                   <div className={classes.deliveryCard}>
                       <div>
-                        <img className={classes.cardImg} alt="delivery guy" src="/urban-drone-delivery-1.png" />
+                        <img className={classes.cardImg} alt="delivery guy" src="/mobileApp.jpg" />
                       </div>
                       <div>
-                        <h2>Faster delivery!</h2>
-                      </div>
-                      <div>
-                        <Button endIcon={<ArrowForwardIosOutlined />}>
-                            Learn more! 
+                        <Button endIcon={<ArrowForwardIosOutlined />} onClick={getMobApp}>
+                           Get App
                         </Button>
                       </div>
                   </div>

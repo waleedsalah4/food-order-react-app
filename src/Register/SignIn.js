@@ -48,7 +48,7 @@ const initialFValues = {
 }
 const theme = createTheme();
 
-export default function SignIn() {
+const SignIn =() => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -169,3 +169,5 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
+
+export default SignIn;

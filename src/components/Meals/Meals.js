@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     pagination: {
         position: 'absolute',
         bottom: '0',
-        right: '30%',
+        right: '38.5%',
     },
     grid: {
         marginTop: '4rem',

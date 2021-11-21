@@ -1,5 +1,5 @@
 import React from "react";
-import { Route , Switch, Redirect} from 'react-router-dom';
+import { Route , Switch} from 'react-router-dom';
 
 import Layout from "./components/UI/Layout";
 import MainContainer from "./components/mainContent/MainContainer";
@@ -17,21 +17,27 @@ import UpdateUserInfo from "./Register/UpateUserInfo";
 import UpdatePassword from "./Register/UpdatePassword";
 import Product from "./components/Products/Product";
 import SearchScreen from "./components/search/SearchScreen";
-import Dashboard from "./Admin/Dashboard";
+
+import AdminNav from "./Admin/AdminNav";
+import AllRecipes from "./Admin/recipes/AllRecipes";
+import AllUsers from './Admin/users/AllUsers';
+import AllCategories from './Admin/categories/AllCategories';
+import AllOrders from './Admin/orders/AllOrders';
+import Welcome from "./Admin/Welcome";
 
 
 
 function App() {
-  const isLogged = localStorage.getItem('isLoggedIn');
+  // const isLogged = localStorage.getItem('isLoggedIn');
   
   return (
       <Switch>
-        <Route path='/signin' exact>
+        {/* <Route path='/signin' exact>
           {!isLogged && <SignIn />}
           {isLogged && <Redirect to='/' />}
-        </Route>
-        
+        </Route> */}
         <Route path='/signup' component={SignUp} />
+        <Route path='/signin' component={SignIn} />
 
         <Route path='/update-me' component={UpdateUserInfo} />
         <Route path='/update-password' component={UpdatePassword} />
@@ -39,7 +45,15 @@ function App() {
         <Route path='/forgot-password' component={ForgotPassword} />
         <Route path='/reset-password' component={ResetPassword} />
 
-        <Route path='/admin/dashboard' component={Dashboard} />
+        <Route path='/admin/dashboard' render={()=> (
+          <AdminNav>
+            <Route path='/admin/dashboard/' exact component={Welcome} />
+            <Route path='/admin/dashboard/users' component={AllUsers} />
+            <Route path='/admin/dashboard/recipes' component={AllRecipes} />
+            <Route path='/admin/dashboard/categories' component={AllCategories} />
+            <Route path='/admin/dashboard/orders' component={AllOrders} />
+          </AdminNav>
+        )} />
 
         <Route path="/" render={() => (
           <Layout>

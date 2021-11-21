@@ -14,11 +14,14 @@ const MyORders = () => {
         dispatch(getMYOrdersReq(token))
     },[dispatch, token])
 
+    
     return(
         <div>
+            {!loading && orders.length === 0 && <p>You didn't order anything yet</p>}
             {!loading && orders.map(item => (
                 <OrderItem orders={item} key={item._id} />
             ))}
+            {/* {content} */}
             
         </div>
     )

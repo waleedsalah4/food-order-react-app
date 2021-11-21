@@ -5,7 +5,7 @@ const useStyles = makeStyles({
         backgroundColor: 'white',
         borderRadius: '1.5rem',
         margin: '1.5rem 0rem 1.5rem 3rem',
-        height: '40rem',
+        maxHeight: '45rem',
         overflow: 'auto',
 
         '&::-webkit-scrollbar': {

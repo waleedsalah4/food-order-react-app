@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 import { IconButton,Badge, Button, makeStyles } from '@material-ui/core';
 import { FavoriteOutlined, ShoppingCartOutlined } from '@material-ui/icons';
 import { styled } from '@material-ui/styles';

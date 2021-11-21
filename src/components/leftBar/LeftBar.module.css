@@ -1,0 +1,69 @@
+.root {
+    flex-grow: 1
+}
+  .drawer {
+    /* // width: '10rem'; */
+    margin-left: 2rem;
+    margin-top: 2rem
+  }
+  @media only screen and (max-width: 600px) {
+    .drawer {
+      max-width: 8rem ;
+    }
+  }
+  .avatar {
+    border: 0.5rem solid white;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block
+  }
+
+  gridMargin {
+    margin-bottom: 2rem
+  }
+
+  .icon {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+  }
+  .list {
+    color: #9397aa;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: '0';
+ }
+.active {
+    background-color: #ec6084;
+    color: white;
+    box-shadow: none;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+
+}
+  
+.text {
+    margin-left: 1rem
+  }
+  .deliveryCard {
+    background-color: white;
+    color: #3b3e4c;
+    padding: 0.6rem;
+    margin-top: 4rem;
+    border-radius: 1.5rem;
+    position: relative;
+    text-align: center
+  }
+  .cardImg {
+    min-width: 8rem;
+    height: 8rem;
+    border-radius: 1.5rem;
+    /*  position: 'absolute';
+     top: '-5rem';
+    left: '1rem'; */
+
+  }

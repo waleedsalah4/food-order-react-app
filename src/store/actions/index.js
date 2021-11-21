@@ -1,15 +1,15 @@
 import { 
     SIGN_IN_SUCC, SIGN_IN_FAIL, SIGN_IN_REQ, 
     SIGN_UP_REQ, SIGN_UP_SUCC, SIGN_UP_FAIL,
-
+    SIGN_OUT, 
     UPDATE_ME_REQ, UPDATE_ME_SUCC, UPDATE_ME_FAIL,
     UPDATE_PASSWORD_REQ, UPDATE_PASSWORD_SUCC, UPDATE_PASSWORD_FAIL,
     FORGOT_PASSWORD_REQ, FORGOT_PASSWORD_SUCC, FORGOT_PASSWORD_FAIL,
     RESET_PASSWORD_REQ, RESET_PASSWORD_SUCC, RESET_PASSWORD_FAIL,
 
-    // GET_RECIPE_REQ,
+    GET_RECIPE_REQ,
     GET_RECIPE_SUCC, GET_RECIPE_FAIL,
-    GET_RECIPE_BY_ID_REQ, GET_RECIPE_BY_ID_SUCC, GET_RECIPE_BY_ID_FAIL,
+    GET_ITEM_BY_ID_REQ, GET_ITEM_BY_ID_SUCC, GET_ITEM_BY_ID_FAIL,
     GET_GATEGORY_REQ, GET_GATEGORY_SUCC, GET_GATEGORY_FAIL,
     SEARCH_FAIL, SEARCH_REQ, SEARCH_SUCC,
 
@@ -111,6 +111,12 @@ export const signIn = (userData) => {
     }
 }
 
+export const signOut = () => {
+    return async dispatch => {
+        localStorage.removeItem('user-data')
+        dispatch({type: SIGN_OUT})
+    }
+}
 
 export const updateMe = (token, userData) => {
     return async dispatch => {
@@ -258,7 +264,7 @@ export const resetPassword = (token, userData) => {
 export const getRecipes = (page) => {
     return async dispatch => {
         try{
-            // dispatch({type: GET_RECIPE_REQ})
+            dispatch({type: GET_RECIPE_REQ})
             const res = await fetch(`${url}/api/v1/recipes?page=${page}&limit=3`)
 
             if(!res.ok) {
@@ -296,29 +302,28 @@ export const getRecipes = (page) => {
     
 }
 
-export const getRecipeById = (id) => {
+export const getItemById = (id) => {
     return async dispatch => {
         try{
-            dispatch({type: GET_RECIPE_BY_ID_REQ})
+            dispatch({type: GET_ITEM_BY_ID_REQ})
 
             const res = await fetch(`${url}/api/v1/recipes?_id=${id}`)
             const response = await res.json();
 
             if(response.status === 'success'){
                 const {data: {data: result}} = response;
-               //why result is array of objects ???!
                 dispatch({
-                    type: GET_RECIPE_BY_ID_SUCC,
+                    type: GET_ITEM_BY_ID_SUCC,
                     payload: result
                 })
 
             } else{
-                dispatch({ type: GET_RECIPE_BY_ID_FAIL, payload: response.message })
+                dispatch({ type: GET_ITEM_BY_ID_FAIL, payload: response.message })
             }
         
         } catch(error) {
             dispatch({
-                type: GET_RECIPE_BY_ID_FAIL,
+                type: GET_ITEM_BY_ID_FAIL,
                 payload: error.message
             })
         }

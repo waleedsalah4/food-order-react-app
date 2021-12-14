@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid, makeStyles } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import ProfileContent from "./ProfileContent";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -8,20 +8,25 @@ import Alerts from "../UI/Alert";
 
 const useStyles = makeStyles(() => ({
     prof: {
-        width: '100%',
+        width: '85%',
         padding: '2rem',
     },
+    profileHeaderContainer: {
+        width: '100%'
+    },
     profileHeader: {
-        width: '100%',
         height: '13rem',
+        width: '100%',
         position: 'relative',
-        // width: 100%;
+        // display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'center'
         // box-shadow: 1px 2px 3px 1px #e7e4e4;
         // height: 19rem;
         // border-radius: 1.5rem;
     },
     cover: {
-        width: '100%',
+        width: '99%',
         height: '13rem',
     },
     profilePicDiv: {
@@ -62,12 +67,12 @@ const Profile = () => {
     if(logged) {
         content = (
             <div>
-                <Grid 
-                    item xs={12}
-                    container
-                    alignContent='center'
-                    justifyContent='center'
-                >
+                  <div className={classes.profileHeaderContainer}
+                    // item xs={12}
+                    // container
+                    // alignContent='center'
+                    // justifyContent='center'
+                    >  
                     
                    <div className={classes.profileHeader}>
                        <div>
@@ -77,7 +82,7 @@ const Profile = () => {
                            <img src='/avatar7.png' alt='profil pic' className={classes.profilePic} />
                        </div>
                    </div>
-                </Grid>
+                </div>
     
                 <div className={classes.content}>
                     
@@ -88,9 +93,9 @@ const Profile = () => {
         ) 
     } else {
         content = (
-            <Grid 
-                item xs={12}
-                container
+            <div 
+                // item xs={12}
+                // container
                className={classes.notSigned}
             >
                 <div>
@@ -103,7 +108,7 @@ const Profile = () => {
                         </Button>
                     </Link>
                 </div>
-            </Grid>
+            </div>
         )
     }
     return (

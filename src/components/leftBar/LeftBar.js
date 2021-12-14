@@ -3,21 +3,25 @@ import { useHistory, useLocation } from "react-router-dom";
 import {
     List, ListItem, ListItemIcon, ListItemText,
     makeStyles
-    , Avatar, Grid, Typography, Button
+    , Avatar, Typography, Button
 } from "@material-ui/core";
 
 import { ArrowForwardIosOutlined, HomeOutlined, MenuBookOutlined, PersonOutlineOutlined, Dashboard } from '@material-ui/icons';
-// import classes from './LeftBar.module.css'
-// import CardImg from "./CardImg"
-// const drawerWidth = 200;
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1
-  },
+ 
   drawer: {
-    // width: '10rem',
+    // width: '15%',
     marginLeft: '2rem',
-    marginTop: '2rem'
+    marginTop: '1rem',
+    '@media (max-width: 730px)': {
+      marginLeft: '0.3rem',
+      marginTop: '1rem',
+      display: 'flex',
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: 'column'
+    },
+    
   },
   avatar: {
     border: '0.5rem solid white',
@@ -34,11 +38,19 @@ const useStyles = makeStyles({
 
   icon: {
     backgroundColor: 'white',
-    padding: '1rem',
+    padding: '0.8rem',
     borderRadius: '1rem',
     
   },
   list: {
+    display: 'flex',
+    flexDirection: 'column',
+    '@media (max-width: 730px)': {
+      flexDirection: 'row',
+      gap: '0px 12px'
+    },
+  },
+  listItem: {
     color: '#9397aa',
     borderRadius: '1rem',
     marginBottom: '1rem',
@@ -54,7 +66,7 @@ const useStyles = makeStyles({
         boxShadow: 'none'
     },
  },
-  active: {
+  listItemActive: {
     backgroundColor: '#ec6084',
     color: 'white',
     boxShadow: 'none',
@@ -68,24 +80,45 @@ const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: '#ec6084',
       color: 'white',
-    }
+    },
+    '@media only screen and (max-width: 730px)': {
+      display: 'flex',
+      flexDirection: 'row',
+    },
   },
   text: {
-    marginLeft: '1rem'
+    marginLeft: '0.3rem'
   },
   deliveryCard: {
     backgroundColor: 'white',
     color: '#3b3e4c',
-    padding: '0.6rem',
-    marginTop: '4rem',
+    padding: '0rem',
+    marginTop: '0rem',
     borderRadius: '1.5rem',
     position: 'relative',
-    textAlign: 'center'
+    textAlign: 'center',
+    '@media (max-width: 800px)': {
+      width: '8rem'
+    },
+   
   },
   cardImg: {
-    minWidth: '8rem',
+    minWidth: '5rem',
     height: '8rem',
+    // flex: 1,
+    // width: null,
+    // height: null,
+    resizeMode: 'contain',
     borderRadius: '1.5rem',
+    '@media (max-width: 800px)': {
+      width: '8rem'
+    },
+    '@media (max-width: 730px)': {
+      width: '8rem'
+    },
+    // '@media screen and (max-width: 1024px)': {
+    //   width: '8rem'
+    // }
     // position: 'absolute',
     // top: '-5rem',
     // left: '1rem',
@@ -128,30 +161,33 @@ const RightBar = () => {
     ]
 
     return (
-        <Grid container item xs={3} sm={2} >
+        <div 
+          // container item 
+          // xs={3} sm={2} 
+        >
             <div className={classes.drawer}>
-             { logged && <Grid
-                    item xs={12}
-                    container
-                    direction="column"
-                    justifyContent="center"
-                    alignItems="center"
+             { logged && <div
+                    // item xs={12}
+                    // container
+                    // direction="column"
+                    // justifyContent="center"
+                    // alignItems="center"
                     className={classes.gridMargin}
                  >
                     <Avatar src="/avatar7.png" className={classes.avatar} />
                     <Typography variant="h6" component="h3">
                         Waleed Salah
                     </Typography>
-                </Grid>}
+                </div>}
             
-
-                    <List>
+                  
+                    <List className={classes.list}>
                         {menuItem.map(item => (
                             <ListItem 
                                 button
                                 key={item.text}
                                 onClick={() => history.push(item.path)} 
-                                className={location.pathname === item.path ? classes.active : classes.list}
+                                className={location.pathname === item.path ? classes.listItemActive : classes.listItem}
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText className={classes.text}>
@@ -162,7 +198,7 @@ const RightBar = () => {
                         {logged && userRole.role === 'admin' && <ListItem 
                               button
                                 onClick={() => history.push('/admin/dashboard')} 
-                                className={classes.list}
+                                className={classes.listItem}
                             >
                                 <ListItemIcon>
                                   <Dashboard className={classes.icon}/>
@@ -172,12 +208,14 @@ const RightBar = () => {
                                 </ListItemText>
                           </ListItem>}
                     </List>
-                <Grid 
-                    item xs={12}
-                    container
-                    direction="column"
-                    justifyContent="center"
-                    alignItems="center"
+                  
+                <div 
+                    // item xs={12}
+                    // container
+                    // direction="column"
+                    // justifyContent="center"
+                    // alignItems="center"
+                    className={classes.deliveryCard}
                 >
                   <div className={classes.deliveryCard}>
                       <div>
@@ -189,10 +227,10 @@ const RightBar = () => {
                         </Button>
                       </div>
                   </div>
-                </Grid>
+                </div>
 
             </div>
-        </Grid>
+        </div>
     )    
 }
 

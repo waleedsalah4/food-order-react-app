@@ -8,7 +8,7 @@ import GoBack from '../UI/GoBack';
 
 const useStyles = makeStyles(() => ({
     prof: {
-        width: '100%',
+        width: '85%',
         padding: '2rem',
     },
     notSigned: {
@@ -67,9 +67,9 @@ const Settings = () => {
         )
     } else {
         content = (
-            <Grid 
-                item xs={12}
-                container
+            <div 
+                // item xs={12}
+                // container
                className={classes.notSigned}
             >
                 <div>
@@ -82,7 +82,7 @@ const Settings = () => {
                         </Button>
                     </Link>
                 </div>
-            </Grid>
+            </div>
         )
     }
     

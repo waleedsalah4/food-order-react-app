@@ -9,12 +9,15 @@ import MealItem from './MealItem';
 const useStyles = makeStyles(() => ({
 
     parentDiv: {
-        position: 'relative'
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     pagination: {
         position: 'absolute',
         bottom: '0',
-        right: '38.5%',
     },
     grid: {
         marginTop: '4rem',

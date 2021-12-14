@@ -20,7 +20,7 @@ export default function Search() {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search from a meal"
+            label="Search for a meal"
             margin="normal"
             variant="outlined"
             InputProps={{ ...params.InputProps, type: 'search' }}

@@ -18,7 +18,15 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   }));
 
     const useStyles = makeStyles(() =>({
-      registerLinks: {
+        registerLinks: {
+            display: 'flex',
+           
+            '@media (max-width: 730px)': {
+                flexDirection: 'column',
+                gap: '10px 0px',
+            },
+        },
+        links: {
           textDecoration: 'none',
           marginLeft: '1rem',
       }
@@ -74,13 +82,13 @@ const HeaderIcones = () => {
         )
     } else {
         content = (
-        <div>
-            <Link to='/signup' className={classes.registerLinks}>
+        <div className={classes.registerLinks}>
+            <Link to='/signup' className={classes.links}>
                 <Button variant='contained' color='secondary'>
                     Signup
                 </Button>
             </Link>
-            <Link to='/signin' className={classes.registerLinks}>
+            <Link to='/signin' className={classes.links}>
                 <Button variant='contained' color='secondary'>
                     Signin
                 </Button>

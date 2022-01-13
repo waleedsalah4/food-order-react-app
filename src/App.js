@@ -3,7 +3,6 @@ import { Route , Switch} from 'react-router-dom';
 
 import Layout from "./components/UI/Layout";
 import MainContainer from "./components/mainContent/MainContainer";
-import LeftBar from "./components/leftBar/LeftBar";
 import Wrapper from "./components/UI/Wrapper";
 import Profile from "./components/profile/Profile";
 import Cart from "./components/cart/Cart";
@@ -24,6 +23,7 @@ import AllUsers from './Admin/users/AllUsers';
 import AllCategories from './Admin/categories/AllCategories';
 import AllOrders from './Admin/orders/AllOrders';
 import Welcome from "./Admin/Welcome";
+import Navbar from "./components/Navbar/Navbar";
 
 
 
@@ -57,7 +57,7 @@ function App() {
 
         <Route path="/" render={() => (
           <Layout>
-            <LeftBar />
+            <Navbar />
             <Wrapper>
               <Route path="/" exact component={MainContainer} />
               <Route path="/search" component={SearchScreen} />

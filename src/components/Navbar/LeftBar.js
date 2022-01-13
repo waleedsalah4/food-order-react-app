@@ -13,14 +13,14 @@ const useStyles = makeStyles({
     // width: '15%',
     marginLeft: '2rem',
     marginTop: '1rem',
-    '@media (max-width: 730px)': {
-      marginLeft: '0.3rem',
-      marginTop: '1rem',
-      display: 'flex',
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: 'column'
-    },
+    // '@media (max-width: 730px)': {
+    //   marginLeft: '0.3rem',
+    //   marginTop: '1rem',
+    //   display: 'flex',
+    //   justifyContent: "center",
+    //   alignItems: "center",
+    //   flexDirection: 'column'
+    // },
     
   },
   avatar: {
@@ -45,10 +45,10 @@ const useStyles = makeStyles({
   list: {
     display: 'flex',
     flexDirection: 'column',
-    '@media (max-width: 730px)': {
-      flexDirection: 'row',
-      gap: '0px 12px'
-    },
+    // '@media (max-width: 730px)': {
+    //   flexDirection: 'row',
+    //   gap: '0px 12px'
+    // },
   },
   listItem: {
     color: '#9397aa',
@@ -81,10 +81,10 @@ const useStyles = makeStyles({
       backgroundColor: '#ec6084',
       color: 'white',
     },
-    '@media only screen and (max-width: 730px)': {
-      display: 'flex',
-      flexDirection: 'row',
-    },
+    // '@media only screen and (max-width: 730px)': {
+    //   display: 'flex',
+    //   flexDirection: 'row',
+    // },
   },
   text: {
     marginLeft: '0.3rem'

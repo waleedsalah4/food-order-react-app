@@ -43,7 +43,7 @@ export default function Drawer() {
       >
         <div className={classes.list}>
           <Box textAlign="center" p={2}>
-            Components
+                😎
           </Box>
           <Divider />
             <LeftBar />
